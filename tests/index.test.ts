@@ -76,7 +76,7 @@ describe('CORS headers tests', (it) => {
       await fetch('/').expect('Access-Control-Allow-Origin', null)
     })
   })
-  it('should send an error if it is other object types', () => {
+  it('should send an error if origin is an unacceptable object type', () => {
     try {
       // @ts-ignore
       const middleware = cors({ origin: { site: 'http://example.com' } })
