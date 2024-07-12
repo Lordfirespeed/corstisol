@@ -1,5 +1,5 @@
 {
-  "name": "@tinyhttp/cors",
+  "name": "corstisol",
   "version": "2.0.0",
   "type": "module",
   "description": "CORS middleware for modern Node.js ",
