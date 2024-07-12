@@ -40,6 +40,7 @@
     "test": "vitest run --silent",
     "test:debug": "vitest run",
     "test:coverage": "vitest run --silent --coverage --coverage.reporter=lcov",
+    "type-check": "tsc --noEmit",
     "lint": "eslint . --ext=ts",
     "format": "prettier --check \"./**/*.{ts,md}\"",
     "format:fix": "prettier --write \"./**/*.{ts,md}\"",
