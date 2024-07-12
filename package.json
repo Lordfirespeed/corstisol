@@ -19,21 +19,10 @@
       "require": "./dist/index.cjs"
     }
   },
-  "keywords": [
-    "tinyhttp",
-    "node.js",
-    "web framework",
-    "web",
-    "backend"
-  ],
+  "keywords": ["tinyhttp", "node.js", "web framework", "web", "backend"],
   "author": "v1rtl",
   "license": "MIT",
-  "files": [
-    "dist/**"
-  ],
-  "dependencies": {
-    "es-vary": "^0.1.2"
-  },
+  "files": ["dist/**"],
   "scripts": {
     "build": "tsup",
     "prebuild": "npm run type-check",
@@ -42,27 +31,26 @@
     "test:debug": "vitest run",
     "test:coverage": "vitest run --silent --coverage --coverage.reporter=lcov",
     "type-check": "tsc --noEmit",
-    "lint": "eslint . --ext=ts",
-    "format": "prettier --check \"./**/*.{ts,md}\"",
-    "format:fix": "prettier --write \"./**/*.{ts,md}\"",
+    "lint": "biome lint .",
+    "format": "biome format .",
+    "format:fix": "biome format --write .",
+    "check": "biome check .",
     "prepare": "husky install"
   },
   "devDependencies": {
-    "@commitlint/cli": "16.2.1",
-    "@commitlint/config-conventional": "16.2.1",
-    "@tinyhttp/app": "2.0.19",
+    "@biomejs/biome": "1.8.3",
+    "@commitlint/cli": "19.3.0",
+    "@commitlint/config-conventional": "19.2.2",
+    "@tinyhttp/app": "2.2.4",
     "@types/node": "^20.14.10",
-    "@typescript-eslint/eslint-plugin": "^5.13.0",
-    "@typescript-eslint/parser": "^5.13.0",
     "@vitest/coverage-istanbul": "^2.0.2",
-    "eslint": "^8.10.0",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-prettier": "^4.0.0",
-    "husky": "^7.0.4",
-    "prettier": "^2.5.1",
-    "supertest-fetch": "^1.5.0",
+    "husky": "^9.0.11",
+    "supertest-fetch": "^2.0.0",
     "tsup": "^8.1.0",
     "typescript": "~5.5.3",
     "vitest": "^2.0.2"
+  },
+  "dependencies": {
+    "@tinyhttp/vary": "^0.1.3"
   }
 }

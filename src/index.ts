@@ -1,5 +1,5 @@
-import { IncomingMessage as Request, ServerResponse as Response } from 'http'
-import { vary } from 'es-vary'
+import type { IncomingMessage as Request, ServerResponse as Response } from 'node:http'
+import { vary } from '@tinyhttp/vary'
 
 export type AccessControlOptions = {
   origin?: string | boolean | ((req: Request, res: Response) => string) | Iterable<string> | RegExp
@@ -28,7 +28,7 @@ function getOriginHeaderHandler(origin: unknown): (req: Request, res: Response) 
   }
 
   if (typeof origin === 'boolean' && origin === true) {
-    return function (_, res) {
+    return (_, res) => {
       res.setHeader('Access-Control-Allow-Origin', '*')
     }
   }
@@ -38,13 +38,13 @@ function getOriginHeaderHandler(origin: unknown): (req: Request, res: Response) 
   }
 
   if (typeof origin === 'string') {
-    return function (_, res) {
+    return (_, res) => {
       res.setHeader('Access-Control-Allow-Origin', origin)
     }
   }
 
   if (typeof origin === 'function') {
-    return function (req, res) {
+    return (req, res) => {
       vary(res, 'Origin')
       res.setHeader('Access-Control-Allow-Origin', origin(req, res))
     }
@@ -59,12 +59,12 @@ function getOriginHeaderHandler(origin: unknown): (req: Request, res: Response) 
     const originSet = new Set(origin)
 
     if (originSet.has('*')) {
-      return function (_, res) {
+      return (_, res) => {
         res.setHeader('Access-Control-Allow-Origin', '*')
       }
     }
 
-    return function (req, res) {
+    return (req, res) => {
       vary(res, 'Origin')
       if (req.headers.origin === undefined) return
       if (!originSet.has(req.headers.origin)) return
@@ -73,7 +73,7 @@ function getOriginHeaderHandler(origin: unknown): (req: Request, res: Response) 
   }
 
   if (origin instanceof RegExp) {
-    return function (req, res) {
+    return (req, res) => {
       vary(res, 'Origin')
       if (req.headers.origin === undefined) return
       if (!origin.test(req.headers.origin)) return
@@ -100,7 +100,7 @@ export function cors(opts: AccessControlOptions = {}) {
   } = opts
   const originHeaderHandler = getOriginHeaderHandler(origin)
 
-  return function (req: Request, res: Response, next?: () => void): void {
+  return (req: Request, res: Response, next?: () => void): void => {
     originHeaderHandler(req, res)
 
     // Setting the Access-Control-Allow-Methods header from the methods array
