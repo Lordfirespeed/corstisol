@@ -30,7 +30,8 @@
   },
   "scripts": {
     "build": "rollup -c",
-    "test": "tsm node_modules/uvu/bin.js tests",
+    "test": "vitest run --silent",
+    "test:debug": "vitest run",
     "test:coverage": "c8 --include=src pnpm test",
     "test:report": "c8 report --reporter=text-lcov > coverage.lcov",
     "lint": "eslint . --ext=ts",
