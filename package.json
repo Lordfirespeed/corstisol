@@ -20,7 +20,7 @@
     }
   },
   "keywords": ["tinyhttp", "node.js", "web framework", "web", "backend"],
-  "author": "v1rtl",
+  "author": "lordfirespeed",
   "license": "MIT",
   "files": ["dist/**"],
   "scripts": {
