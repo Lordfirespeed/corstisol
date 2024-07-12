@@ -1,3 +1,54 @@
-node_modules
-dist
-coverage
+# Exclude everything
+/*
+
+# Specific includes
+
+## Editorconfig
+!.editorconfig
+
+## Package manager
+!/package.json
+!/pnpm-lock.yaml
+
+## Config files
+!/*config.ts
+!/*config.mjs
+!/*config.cjs
+!/*config.js
+!/*config.json
+!/*env.d.ts
+!/*env.ts
+!/*rc.json
+
+## Biome.js
+!/biome.json
+
+## Eslint
+!.eslintignore
+!.eslintrc
+
+## Husky
+!.husky
+
+## Prettier
+!.prettierignore
+!.prettierrc
+
+## Markdowns
+!*.md
+!LICENSE
+
+## important Git files
+!.gitmodules
+!.gitignore
+!.gitattributes
+!.git-blame-ignore-revs
+
+## GitHub specific
+!/.github/
+
+## Sources
+!/tests
+!/src
+
+# Explicit exceptions/ignores
