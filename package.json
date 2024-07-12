@@ -38,6 +38,7 @@
   "scripts": {
     "build": "tsup",
     "prebuild": "npm run type-check",
+    "prepublishOnly": "npm run build",
     "test": "vitest run --silent",
     "test:debug": "vitest run",
     "test:coverage": "vitest run --silent --coverage --coverage.reporter=lcov",
