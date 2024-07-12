@@ -1,25 +1,23 @@
-<div align="center">
+# corstisol
 
-# @tinyhttp/cors
+**CORS header middleware for modern Node.js.**
 
-[![npm][npm-img]][npm-url] [![GitHub Workflow Status][gh-actions-img]][github-actions] [![Coverage][cov-img]][cov-url]
+> :pushpin: This project is a fork of [tinyhttp/cors](https://github.com/tinyhttp/cors), which is a rewrite of [expressjs/cors](https://github.com/expressjs/cors).
 
-</div>
-
-> A rewrite of [expressjs/cors](https://github.com/expressjs/cors) module.
-
-HTTP cors header middleware.
+[![npm][npm-img]][npm-url]
+[![GitHub Workflow Status][gh-actions-img]][github-actions]
+[![Coverage][cov-img]][cov-url]
 
 ## Install
 
 ```sh
-pnpm i @tinyhttp/cors
+pnpm i corstisol
 ```
 
 ## API
 
 ```ts
-import { cors } from '@tinyhttp/cors'
+import { cors } from 'corstisol'
 ```
 
 ### `cors(options)`
@@ -52,7 +50,7 @@ The default configuration is:
 
 ```ts
 import { App } from '@tinyhttp/app'
-import { cors } from '@tinyhttp/cors'
+import { cors } from 'corstisol'
 
 const app = new App()
 
@@ -65,9 +63,9 @@ app
   .listen(3000)
 ```
 
-[npm-url]: https://npmjs.com/package/@tinyhttp/cors
-[github-actions]: https://github.com/tinyhttp/cors/actions
-[gh-actions-img]: https://img.shields.io/github/actions/workflow/status/tinyhttp/cors/ci.yml?style=for-the-badge&logo=github&label=&color=hotpink
-[cov-img]: https://img.shields.io/coveralls/github/tinyhttp/cors?style=for-the-badge&color=hotpink
-[cov-url]: https://coveralls.io/github/tinyhttp/cors
-[npm-img]: https://img.shields.io/npm/dt/@tinyhttp/cors?style=for-the-badge&color=hotpink
+[npm-url]: https://npmjs.com/package/lordfirespeed/corstisol
+[github-actions]: https://github.com/lordfirespeed/corstisol/actions
+[gh-actions-img]: https://img.shields.io/github/actions/workflow/status/lordfirespeed/corstisol/ci.yml?style=for-the-badge&logo=github&label=&color=hotpink
+[cov-img]: https://img.shields.io/coveralls/github/lordfirespeed/corstisol?style=for-the-badge&color=hotpink
+[cov-url]: https://coveralls.io/github/lordfirespeed/corstisol
+[npm-img]: https://img.shields.io/npm/dt/lordfirespeed/corstisol?style=for-the-badge&color=hotpink
