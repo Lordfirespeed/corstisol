@@ -65,7 +65,7 @@ app
 
 [npm-url]: https://npmjs.com/package/corstisol
 [github-actions]: https://github.com/lordfirespeed/corstisol/actions
-[gh-actions-img]: https://img.shields.io/github/actions/workflow/status/lordfirespeed/corstisol/ci.yml?style=for-the-badge&logo=github&label=&color=hotpink
-[cov-img]: https://img.shields.io/coveralls/github/Lordfirespeed/corstisol?style=for-the-badge&color=hotpink
+[gh-actions-img]: https://img.shields.io/github/actions/workflow/status/lordfirespeed/corstisol/ci.yml?style=for-the-badge&logo=github&label=&color=blueviolet
+[cov-img]: https://img.shields.io/coveralls/github/Lordfirespeed/corstisol?style=for-the-badge&color=blueviolet
 [cov-url]: https://coveralls.io/github/Lordfirespeed/corstisol
-[npm-img]: https://img.shields.io/npm/dt/corstisol?style=for-the-badge&color=purple
+[npm-img]: https://img.shields.io/npm/dt/corstisol?style=for-the-badge&color=blueviolet
