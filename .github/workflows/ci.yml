@@ -25,9 +25,9 @@ jobs:
         with:
           node-version: 20
           registry-url: https://registry.npmjs.org/
-      - run: pnpm install
-      - run: pnpm test:coverage
-      - run: pnpm test:report
+      - run: yarn install
+      - run: yarn run test:coverage
+      - run: yarn run test:report
       - name: Coveralls
         uses: coverallsapp/github-action@master
         with:
