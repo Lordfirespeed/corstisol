@@ -1,4 +1,4 @@
-import { describe, expect, it, vi } from 'vitest'
+import { describe, expect, it } from 'vitest'
 import { makeFetch } from 'supertest-fetch'
 import { cors } from '@/index'
 import * as http from 'node:http'
