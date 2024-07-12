@@ -30,7 +30,7 @@
   "author": "v1rtl",
   "license": "MIT",
   "files": [
-    "dist"
+    "dist/**"
   ],
   "dependencies": {
     "es-vary": "^0.1.2"
