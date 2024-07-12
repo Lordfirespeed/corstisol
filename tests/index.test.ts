@@ -59,14 +59,17 @@ describe('CORS headers tests', () => {
 
       const fetch = makeFetch(app)
 
-      await fetch('/', { headers: { Origin: 'http://not-example.com' } }).expect('Access-Control-Allow-Origin', null)
+      await fetch('/', { headers: { Origin: 'http://not-example.com' } }).expectHeader(
+        'Access-Control-Allow-Origin',
+        null
+      )
     })
     it('should not set origin when origin header is excluded from request', async () => {
       const app = createServer(cors({ origin: ['http://example.com', 'example.com', 'https://example.com'] }))
 
       const fetch = makeFetch(app)
 
-      await fetch('/').expect('Access-Control-Allow-Origin', null)
+      await fetch('/').expectHeader('Access-Control-Allow-Origin', null)
     })
   })
   it('should send an error if origin is an iterable containing a non-string', async () => {
@@ -74,7 +77,7 @@ describe('CORS headers tests', () => {
       // @ts-ignore
       const middleware = cors({ origin: [{}, 3, 'abc'] })
     } catch (e) {
-      expect(e.message).toEqual('No other objects allowed. Allowed types is array of strings or RegExp')
+      expect(e).toMatchObject({ message: 'No other objects allowed. Allowed types is array of strings or RegExp' })
     }
   })
   it('should send an error if it is other object types', () => {
@@ -82,7 +85,7 @@ describe('CORS headers tests', () => {
       // @ts-ignore
       const middleware = cors({ origin: { site: 'http://example.com' } })
     } catch (e) {
-      expect(e.message).toEqual('No other objects allowed. Allowed types is array of strings or RegExp')
+      expect(e).toMatchObject({ message: 'No other objects allowed. Allowed types is array of strings or RegExp' })
     }
   })
   it('should set custom methods', async () => {
