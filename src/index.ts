@@ -1,7 +1,7 @@
 import { IncomingMessage as Request, ServerResponse as Response } from 'http'
 import { vary } from 'es-vary'
 
-export interface AccessControlOptions {
+export type AccessControlOptions = {
   origin?: string | boolean | ((req: Request, res: Response) => string) | Iterable<string> | RegExp
   methods?: string[]
   allowedHeaders?: string[]
