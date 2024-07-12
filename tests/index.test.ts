@@ -1,14 +1,7 @@
-import { suite } from 'uvu'
-import * as assert from 'assert'
+import { describe, expect, it, vi } from 'vitest'
 import { makeFetch } from 'supertest-fetch'
-import { cors } from '../src/index'
+import { cors } from '../src'
 import * as http from 'http'
-
-function describe(name: string, fn: (...args: any[]) => void) {
-  const s = suite(name)
-  fn(s)
-  s.run()
-}
 
 const createServer = (h: (req: http.IncomingMessage, res: http.ServerResponse, next: () => void) => void) => {
   return http.createServer((req, res) => {
@@ -18,7 +11,7 @@ const createServer = (h: (req: http.IncomingMessage, res: http.ServerResponse, n
   })
 }
 
-describe('CORS headers tests', (it) => {
+describe('CORS headers tests', () => {
   it('should set origin to "*" if origin=true', async () => {
     const app = createServer(cors({ origin: true }))
 
@@ -50,7 +43,7 @@ describe('CORS headers tests', (it) => {
       'http://example.com'
     )
   })
-  describe('when origin is an array of strings', (it) => {
+  describe('when origin is an array of strings', () => {
     it('should set origin when origin header is included in request and whitelisted', async () => {
       const app = createServer(cors({ origin: ['http://example.com', 'example.com', 'https://example.com'] }))
 
@@ -81,7 +74,7 @@ describe('CORS headers tests', (it) => {
       // @ts-ignore
       const middleware = cors({ origin: [{}, 3, 'abc'] })
     } catch (e) {
-      assert.strictEqual(e.message, 'No other objects allowed. Allowed types is array of strings or RegExp')
+      expect(e.message).toEqual('No other objects allowed. Allowed types is array of strings or RegExp')
     }
   })
   it('should send an error if it is other object types', () => {
@@ -89,7 +82,7 @@ describe('CORS headers tests', (it) => {
       // @ts-ignore
       const middleware = cors({ origin: { site: 'http://example.com' } })
     } catch (e) {
-      assert.strictEqual(e.message, 'No other objects allowed. Allowed types is array of strings or RegExp')
+      expect(e.message).toEqual('No other objects allowed. Allowed types is array of strings or RegExp')
     }
   })
   it('should set custom methods', async () => {
