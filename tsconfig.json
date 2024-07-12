@@ -1,14 +1,19 @@
 {
   "compilerOptions": {
-    "rootDir": "src",
+    "strict": true /* Enable all strict type-checking options. */,
+    "noEmit": true /* Disable emitting files from a compilation. */,
     "outDir": "dist",
     "declaration": true,
     "declarationDir": "dist",
     "module": "ESNext",
-    "target": "ES2019",
+    "target": "ES2023",
     "preserveSymlinks": true,
-    "moduleResolution": "Node",
-    "skipLibCheck": true
+    "moduleResolution": "Bundler",
+    "skipLibCheck": true,
+    "baseUrl": "./" /* Sets a base directory from which to resolve bare specifier module names. */,
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   },
   "include": ["**/*.ts"],
   "exclude": ["node_modules", "dist", "src/**/*.spec.ts", "src/**/*.test.ts"]
