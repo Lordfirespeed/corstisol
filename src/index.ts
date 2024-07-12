@@ -81,7 +81,7 @@ function getOriginHeaderHandler(origin: unknown): (req: Request, res: Response) 
 /**
  * CORS Middleware
  */
-export const cors = (opts: AccessControlOptions = {}) => {
+export function cors(opts: AccessControlOptions = {}) {
   const {
     origin = '*',
     methods = ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
@@ -94,7 +94,7 @@ export const cors = (opts: AccessControlOptions = {}) => {
   } = opts
   const originHeaderHandler = getOriginHeaderHandler(origin)
 
-  return (req: Request, res: Response, next?: () => void) => {
+  return function (req: Request, res: Response, next?: () => void): void {
     originHeaderHandler(req, res)
 
     // Setting the Access-Control-Allow-Methods header from the methods array
