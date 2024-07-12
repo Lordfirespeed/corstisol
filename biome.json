@@ -21,10 +21,10 @@
   "javascript": {
     "formatter": {
       "quoteProperties": "asNeeded",
-      "trailingCommas": "none",
+      "trailingCommas": "all",
       "semicolons": "asNeeded",
       "arrowParentheses": "always",
-      "quoteStyle": "single"
+      "quoteStyle": "double"
     }
   }
 }
