@@ -12,7 +12,13 @@ export type AccessControlOptions = {
   preflightContinue?: boolean
 }
 
+function isObjectOrArray(obj: unknown): obj is Record<string | number | symbol, unknown> {
+  if (obj === null) return false
+  return typeof obj === 'object'
+}
+
 function isIterable(obj: unknown): obj is Iterable<unknown> {
+  if (!isObjectOrArray(obj)) return false
   return typeof obj[Symbol.iterator] === 'function'
 }
 
