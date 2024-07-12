@@ -1,4 +1,3 @@
-#!/bin/sh -l
-. "$(dirname "$0")/_/husky.sh"
+#/bin/sh
 
 pnpm check
