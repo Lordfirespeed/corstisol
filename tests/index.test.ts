@@ -1,6 +1,6 @@
 import { describe, expect, it, vi } from 'vitest'
 import { makeFetch } from 'supertest-fetch'
-import { cors } from '../src'
+import { cors } from '@/index'
 import * as http from 'http'
 
 const createServer = (h: (req: http.IncomingMessage, res: http.ServerResponse, next: () => void) => void) => {
