@@ -23,7 +23,7 @@ function isIterable(obj: unknown): obj is Iterable<unknown> {
 }
 
 function getOriginHeaderHandler(origin: unknown): (req: Request, res: Response) => void {
-  function fail() {
+  function fail(): never {
     throw new TypeError('No other objects allowed. Allowed types is array of strings or RegExp')
   }
 
